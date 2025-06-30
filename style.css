@@ -1,10 +1,5 @@
 body {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   background: #1d1b1b;
   font-family: monospace;
 }
@@ -25,7 +20,7 @@ body {
   color: #04d3a6;
   font-weight: bold;
   font-size: min(16vw, 20vh);
-  white-space: nowrap; /* Mejor que wrap para un glitch de texto */
+  white-space: nowrap;
 }
 
 .line::before,
@@ -62,15 +57,9 @@ body {
 }
 
 @keyframes glitch {
-  2%, 64% {
-    transform: translate(2px, 0) skew(0deg);
-  }
-  4%, 60% {
-    transform: translate(-2px, 0) skew(0deg);
-  }
-  62% {
-    transform: translate(0, 0) skew(5deg);
-  }
+  2%, 64% { transform: translate(2px, 0); }
+  4%, 60% { transform: translate(-2px, 0); }
+  62% { transform: translate(0, 0) skew(5deg); }
 }
 
 @keyframes glitchTop {
@@ -127,13 +116,8 @@ body {
   border: none;
   border-radius: 0.5rem;
   width: 100%;
-  height: auto;
   aspect-ratio: 4/3;
 }
-
-/* ======================
-   MEDIA QUERIES
-   ====================== */
 
 @media (max-width: 768px) {
   #hackerText {
