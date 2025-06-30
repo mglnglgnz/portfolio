@@ -1,37 +1,17 @@
 body {
   margin: 0;
-  padding: 0;
-  background: #0e0e0e;
-  color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background: #fff;
+  font-family: monospace;
 }
 
-h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+#hackerText {
+  position: fixed; /* siempre fijo */
+  top: 20px; /* distancia desde arriba */
+  left: 20px; /* distancia desde la izquierda */
+  line-height: 1.2;
 }
 
-p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.buttons a {
-  text-decoration: none;
-  background: #1e90ff;
-  color: white;
-  padding: 1rem 2rem;
-  margin: 0 1rem;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-
-.buttons a:hover {
-  background: #63b3ed;
+.line {
+  font-size: 15vmin; /* ajusta según el tamaño que quieras */
+  color: #111;
 }
