@@ -16,10 +16,10 @@ body {
 
 .line {
   position: relative;
-  color: #8c15fa;
+  color: #04d3a6;
   font-weight: bold;
-  font-size: min(20vw, 15vh);
-  white-space: nowrap;
+  font-size: min(16vw, 20vh);
+  white-space: wrap;
   /* Quitamos la animación global */
 }
 
@@ -97,5 +97,53 @@ body {
   62% {
     clip: rect(75px, 9999px, 80px, 0);
     transform: translate(-22px, 5px) skew(21deg);
+  }
+}
+/* Contenedor general */
+.container {
+  display: flex;
+  flex-direction: row; /* Por defecto, en desktop: texto a la izquierda, card a la derecha */
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Card de proyecto */
+.card {
+  background: #222;
+  color: #eee;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 300px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #04d3a6;
+  color: #000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+/* 📱 Móvil: cambiar dirección a columna */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Pila vertical: texto arriba, card abajo */
+    align-items: flex-start;
+  }
+
+  .card {
+    margin-top: 2rem;
+    max-width: 100%; /* Se expande al ancho disponible */
   }
 }
