@@ -7,7 +7,7 @@ const lines = [
 
 const chars = "!<>-_\\/[]{}—=+*^?#________";
 
-function scramble(target, finalText, delay = 50) {
+function scramble(target, finalText, delay = 111) {
   let index = 0;
 
   function update() {
@@ -20,8 +20,11 @@ function scramble(target, finalText, delay = 50) {
       }
     }
     target.textContent = output;
-    index++;
-    if (index <= finalText.length) {
+    if (index >= finalText.length) {
+      // 👉 Aquí se asegura de fijar el data-text final cuando termina
+      target.setAttribute("data-text", finalText);
+    } else {
+      index++;
       setTimeout(update, delay);
     }
   }
@@ -33,5 +36,5 @@ function scramble(target, finalText, delay = 50) {
 lines.forEach((line, i) => {
   setTimeout(() => {
     scramble(line.el, line.text);
-  }, i * 777); // delay entre líneas
+  }, i * 777);
 });

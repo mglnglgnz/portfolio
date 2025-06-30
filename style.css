@@ -1,17 +1,101 @@
 body {
   margin: 0;
-  background: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #1d1b1b;
   font-family: monospace;
 }
 
 #hackerText {
-  position: fixed; /* siempre fijo */
-  top: 20px; /* distancia desde arriba */
-  left: 20px; /* distancia desde la izquierda */
-  line-height: 1.2;
+  line-height: 1;
+  margin-left: 4vw;
 }
 
 .line {
-  font-size: 15vmin; /* ajusta según el tamaño que quieras */
-  color: #111;
+  position: relative;
+  color: #8c15fa;
+  font-weight: bold;
+  font-size: min(20vw, 15vh);
+  white-space: nowrap;
+  /* Quitamos la animación global */
+}
+
+.line::before,
+.line::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #aa17ff;
+  clip: rect(0, 900px, 0, 0);
+  /* Sin animación por defecto */
+}
+
+.line::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+}
+
+.line::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+}
+
+/* SOLO se activa glitch con hover */
+.line:hover {
+  animation: glitch 1s infinite;
+}
+
+.line:hover::before {
+  animation: glitchTop 1s infinite linear alternate-reverse;
+}
+
+.line:hover::after {
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+@keyframes glitchTop {
+  2%, 64% {
+    clip: rect(2px, 9999px, 5px, 0);
+    transform: translate(2px, -2px);
+  }
+  4%, 60% {
+    clip: rect(15px, 9999px, 20px, 0);
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    clip: rect(5px, 9999px, 10px, 0);
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+
+@keyframes glitchBottom {
+  2%, 64% {
+    clip: rect(85px, 9999px, 90px, 0);
+    transform: translate(-2px, 0);
+  }
+  4%, 60% {
+    clip: rect(55px, 9999px, 60px, 0);
+    transform: translate(-2px, 0);
+  }
+  62% {
+    clip: rect(75px, 9999px, 80px, 0);
+    transform: translate(-22px, 5px) skew(21deg);
+  }
 }
