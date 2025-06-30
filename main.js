@@ -37,3 +37,22 @@ lines.forEach((line, i) => {
     scramble(line.el, line.text);
   }, i * 777);
 });
+
+// Activa ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Anima cada card cuando aparece en viewport
+gsap.utils.toArray('.card').forEach(card => {
+  gsap.from(card, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+});
+

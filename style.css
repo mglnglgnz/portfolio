@@ -9,6 +9,12 @@ body {
   font-family: monospace;
 }
 
+.container {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
 #hackerText {
   line-height: 1;
   margin-left: 4vw;
@@ -19,8 +25,7 @@ body {
   color: #04d3a6;
   font-weight: bold;
   font-size: min(16vw, 20vh);
-  white-space: wrap;
-  /* Quitamos la animación global */
+  white-space: nowrap; /* Mejor que wrap para un glitch de texto */
 }
 
 .line::before,
@@ -32,7 +37,6 @@ body {
   overflow: hidden;
   color: #aa17ff;
   clip: rect(0, 900px, 0, 0);
-  /* Sin animación por defecto */
 }
 
 .line::before {
@@ -45,7 +49,6 @@ body {
   text-shadow: -2px 0 blue;
 }
 
-/* SOLO se activa glitch con hover */
 .line:hover {
   animation: glitch 1s infinite;
 }
@@ -99,51 +102,57 @@ body {
     transform: translate(-22px, 5px) skew(21deg);
   }
 }
-/* Contenedor general */
-.container {
-  display: flex;
-  flex-direction: row; /* Por defecto, en desktop: texto a la izquierda, card a la derecha */
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
+
+.graphics-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
-/* Card de proyecto */
 .card {
   background: #222;
-  color: #eee;
   padding: 2rem;
   border-radius: 1rem;
-  max-width: 300px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .card h2 {
   margin-top: 0;
+  color: #04d3a6;
 }
 
-.card .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background: #04d3a6;
-  color: #000;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
+.card iframe {
+  border: none;
   border-radius: 0.5rem;
-  font-weight: bold;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
 }
 
-/* 📱 Móvil: cambiar dirección a columna */
+/* ======================
+   MEDIA QUERIES CORRECTAS
+   ====================== */
+
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Pila vertical: texto arriba, card abajo */
-    align-items: flex-start;
+  #hackerText {
+    margin-left: 2vw;
   }
 
-  .card {
-    margin-top: 3rem;
-    max-width: 100%; /* Se expande al ancho disponible */
+  .graphics-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .card iframe {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card iframe {
+    min-height: 500px;
   }
 }
