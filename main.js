@@ -5,7 +5,7 @@ const lines = [
   { el: document.getElementById("line4"), text: "MEJIA" }
 ];
 
-const chars = "!<>-_\\/[]{}—=+*^?#________";
+const chars = "!<>-_\\/[]{}—=+*^?#->________";
 
 function scramble(target, finalText, delay = 333  ) {
   let index = 0;
