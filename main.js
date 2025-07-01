@@ -40,17 +40,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray('.card').forEach(card => {
-    gsap.from(card, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 80%",
-        toggleActions: "play none none reverse"
+  const showBtn = document.getElementById("showGraphics");
+  const section = document.getElementById("graphicsSection");
+
+  showBtn.addEventListener("click", () => {
+    if (section.classList.contains("grid")) {
+      // Si ya está abierto, se cierra
+      section.classList.remove("grid");
+      showBtn.textContent = "Ver Gráficos";
+    } else {
+      // Si está cerrado, se abre
+      if (!section.hasChildNodes()) {
+        const graphics = [
+          {
+            title: "Top 5 Ciudades con más envíos",
+            src: "graphics_interactives/top5_envios_por_ciudad.html"
+          },
+          {
+            title: "Boxplot Prioridad de Envío",
+            src: "graphics_interactives/duracion_prioridad.html"
+          },
+          {
+            title: "Violinplot Prioridad de Envío",
+            src: "graphics_interactives/duracion_prioridad_violin.html"
+          },
+          {
+            title: "Duración por método de envío",
+            src: "graphics_interactives/duracion_metodo.html"
+          }
+        ];
+
+        graphics.forEach(g => {
+          const card = document.createElement("div");
+          card.className = "card";
+          const h2 = document.createElement("h2");
+          h2.textContent = g.title;
+          const iframe = document.createElement("iframe");
+          iframe.src = g.src;
+          iframe.loading = "lazy";
+          card.appendChild(h2);
+          card.appendChild(iframe);
+          section.appendChild(card);
+
+          gsap.from(card, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          });
+        });
       }
-    });
+
+      section.classList.add("grid");
+      section.scrollIntoView({ behavior: "smooth" });
+      showBtn.textContent = "Cerrar Gráficos";
+    }
   });
 });
