@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           {
             title: "Duración por método de envío",
-            src: "graphics_interactives/duracion_metodo.html"
+            src: "graphics_interactives/duracion_metodo_envio.html"
           }
         ];
 

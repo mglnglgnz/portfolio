@@ -140,7 +140,6 @@ body {
   border-radius: 1rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  margin-right: 20vw;
 }
 
 .card h2 {
@@ -168,8 +167,7 @@ body {
 
   .project-card {
     order: 2; /* Tarjeta después */
-    margin-left: 6vw;
-    margin-right: 6vw;
+    margin-left: 2vw;
   }
 
   .graphics-section.grid {
