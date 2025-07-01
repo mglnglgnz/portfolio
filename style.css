@@ -103,7 +103,7 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   color: #fff;
-  max-width: 400px;
+  max-width: 500px;
   flex: 1 1 35%;
 }
 
@@ -125,13 +125,13 @@ body {
 }
 
 .graphics-section {
-  display: none; /* Oculto hasta activarse */
+  display: none; 
   width: 100%;
 }
 
 .graphics-section.grid {
   display: grid;
-  grid-template-columns: 2fr;  margin-top: 2rem;
+  grid-template-columns: 4fr;  margin-top: 2rem;
 }
 
 .card {
@@ -151,7 +151,8 @@ body {
   border: none;
   border-radius: 0.5rem;
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3; /* Mantiene proporción */
+  max-height: 500px;
 }
 
 @media (max-width: 730px) {

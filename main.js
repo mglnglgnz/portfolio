@@ -84,12 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           gsap.from(card, {
             opacity: 0,
-            y: 50,
+            y: 90,
             duration: 1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
+              start: "top 50%",
               toggleActions: "play none none reverse"
             }
           });
