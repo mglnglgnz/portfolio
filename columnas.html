@@ -1,0 +1,180 @@
+<!-- columnas.html -->
+<div class="table-wrapper">
+  <table class="dataframe">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Columnas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>numero_venta</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>mes_salida</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dia_salida</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ano_salida</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>mes_entrega</td>document.addEventListener("DOMContentLoaded", () => {
+  // Efecto Scramble
+  const lines = [
+    { el: document.getElementById("line1"), text: "MIGUEL" },
+    { el: document.getElementById("line2"), text: "ANGEL" },
+    { el: document.getElementById("line3"), text: "GONZALEZ" },
+    { el: document.getElementById("line4"), text: "MEJIA" }
+  ];
+  const chars = "!<>-_\\/[]{}—=+*^?#->________";
+  function scramble(target, finalText, delay = 333) {
+    let index = 0;
+    function update() {
+      let output = "";
+      for (let i = 0; i < finalText.length; i++) {
+        if (i < index) {
+          output += finalText[i];
+        } else {
+          output += chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+      target.textContent = output;
+      if (index >= finalText.length) {
+        target.setAttribute("data-text", finalText);
+      } else {
+        index++;
+        setTimeout(update, delay);
+      }
+    }
+    update();
+  }
+  lines.forEach((line, i) => {
+    setTimeout(() => scramble(line.el, line.text), i * 777);
+  });
+
+  // Slides narrativos
+  const columnasContainer = document.getElementById('columnasContainer');
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  document.querySelectorAll('.nextBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      slides[currentSlide].classList.add('active');
+    });
+  });
+   if (slides[currentSlide].id === 'slide-2' && columnasContainer.childElementCount === 0) {
+      fetch('src/columnas.html')
+        .then(response => response.text())
+        .then(html => {
+          columnasContainer.innerHTML = html;
+        });
+    }
+});
+
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>dia_entrega</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ano_entrega</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>metodo_envio</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>numero_cliente</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>nombre_cliente</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>segmento</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ciudad</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>estado</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>pais</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>id_producto</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ventas</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>cantidad</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>descuento</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>utilidad</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>costo_envio</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>prioridad_envio</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>fecha_salida</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>fecha_entrega</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>tiempo_entrega</td>
+    </tr>
+  </tbody>
+</table>
+</div>  </table>
+</div>

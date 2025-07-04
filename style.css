@@ -6,10 +6,12 @@ body {
 
 .container {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 3rem;
   flex-direction: row;
-  align-items: flex-start;
   width: 100%;
   padding: 3.5rem;
   box-sizing: border-box;
@@ -17,9 +19,8 @@ body {
 }
 
 #scrambleText {
-  flex: 2 1 0%;
-  line-height: 1;
-  margin-left: 1vw;
+  flex: 1 1 50%;
+  line-height: 1;  
 }
 
 .line {
@@ -99,45 +100,37 @@ body {
   }
 }
 
-.project-card {
+.narrative {
+ flex: 1 1 40%;
+  max-width: 600px;
+}
+
+
+.slide {
+  display: none;
   background: #111;
   border: 2px solid #04d3a6;
-  box-shadow: 0 0 20px rgba(4, 211, 166, 0.2);
   border-radius: 1rem;
-  padding:  2rem;
+  padding: 2rem;
   color: #fff;
-  max-width: 500px;
-  flex: 1 1 3%;
-  align-items: flex-start;
+  box-shadow: 0 0 20px rgba(4, 211, 166, 0.2);
 }
-.project-card h1 {
-  font-size: 2rem;
-  margin-top: 0;  color: #ffffff;
-  
+
+.slide.active {
+  display: block;
 }
-.project-card h2 {
-  color: #04d3a6;
-  font-size: 1.5rem;
-}
-.project-card p {
-  color: #ccc;
-  font-size: larger;
-  line-height: 1.5;
-}
-.project-content {
-  margin-bottom: 1rem;
-  border-radius: 1rem;
-  padding: 1rem;
-  background-color: #1d1d1d;
-}
-.project-content h2 {
-  margin: 0;
-  padding-bottom: 1rem;
-}
-.project-card .btn {
-  display: inline-block;
-  margin-right: 1rem;
+
+.slide iframe {
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+  aspect-ratio: 4/3;
   margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin: 1rem 0 0;
   background: #04d3a6;
   color: #000;
   text-decoration: none;
@@ -147,37 +140,6 @@ body {
   border-radius: 0.5rem;
 }
 
-.graphics-section {
-  display: none; 
-  width: 100%;
-  border: solid green;
-}
-
-.graphics-section.grid {
-  display: grid;
-  grid-template-columns: 4fr 4fr;  margin-top: 2rem;
-}
-
-.card {
-  background: #222;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.card h2 {
-  margin-top: 0;
-  color: #04d3a6;
-}
-
-.card iframe {
-  border: none;
-  border-radius: 0.5rem;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Mantiene proporción */
-  max-height: 500px;
-}
 
 @media (max-width: 730px) {
   .container {
