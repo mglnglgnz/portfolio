@@ -57,12 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
             src: "graphics_interactives/top5_envios_por_ciudad.html"
           },
           {
-            title: "Boxplot Prioridad de Envío",
-            src: "graphics_interactives/duracion_prioridad.html"
-          },
-          {
             title: "Violinplot Prioridad de Envío",
             src: "graphics_interactives/duracion_prioridad_violin.html"
+          },
+          {
+            title: "Boxplot Prioridad de Envío",
+            src: "graphics_interactives/duracion_prioridad.html"
           },
           {
             title: "Duración por método de envío",
