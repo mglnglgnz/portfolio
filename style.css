@@ -201,18 +201,15 @@ body {
     margin-left: 2vw;
     order: 1;  /* Texto primero */
   }
-
-  .project-card {
-    order: 2; /* Tarjeta después */
-    margin-left: 2vw;
-  }
-
-  .graphics-section.grid {
-    grid-template-columns: 1fr;
-  }
+  .narrative {
+    order: 2;
 }
-@media (min-width: 1024px) {
-  .card iframe {
-    min-height: 500px;
-  }
+.slide {
+  height: auto;
+  max-height: 90vh;
+  overflow: hidden;
 }
+.slide iframe {
+  max-height: 50vh; 
+}
+ 
