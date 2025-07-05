@@ -15,7 +15,6 @@ body {
   width: 100%;
   padding: 3.5rem;
   box-sizing: border-box;
-  border: solid white;
 }
 
 #scrambleText {
@@ -114,8 +113,9 @@ body {
   padding: 2rem;
   color: #fff;
   box-shadow: 0 0 20px rgba(4, 211, 166, 0.2);
-  height: 500px; /* Altura fija */  flex-direction: column;
-  justify-content: center;
+  height: 500px; 
+  flex-direction:column;
+  justify-content:flex-start;
   overflow: hidden;
   
 }
@@ -125,9 +125,9 @@ body {
   flex-direction: column;
 }
 .table-wrapper {
-  flex: 1; /* 🔹 Ocupar el espacio disponible dentro del slide */
-  overflow-y: auto; /* 🔹 Scroll vertical si es necesario */
-  margin: 1rem 0 0; /* Espaciado superior opcional */
+  flex: 1;
+  overflow-y: auto; 
+  margin: 1rem 0 0; 
 }
 
 .slide iframe {
@@ -140,6 +140,7 @@ body {
 
 .btn {
   display: inline-block;
+   max-width: fit-content;
   margin: 1rem 0 0;
   background: #04d3a6;
   color: #000;
