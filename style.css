@@ -114,10 +114,20 @@ body {
   padding: 2rem;
   color: #fff;
   box-shadow: 0 0 20px rgba(4, 211, 166, 0.2);
+  height: 500px; /* Altura fija */  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  
 }
 
 .slide.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+}
+.table-wrapper {
+  flex: 1; /* 🔹 Ocupar el espacio disponible dentro del slide */
+  overflow-y: auto; /* 🔹 Scroll vertical si es necesario */
+  margin: 1rem 0 0; /* Espaciado superior opcional */
 }
 
 .slide iframe {
@@ -139,8 +149,47 @@ body {
   cursor: pointer;
   border-radius: 0.5rem;
 }
+/* Estilo para tablas dataframe */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+}
 
+.dataframe {
+  width: 100%;
+  border-collapse: collapse;
+  color: #eee;
+  background: #1d1b1b;
+  font-family: monospace;
+}
 
+.dataframe th,
+.dataframe td {
+  border: 1px solid #04d3a6;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.dataframe thead {
+  background: #04d3a6;
+  color: #000;
+}
+
+.dataframe tbody tr:nth-child(even) {
+  background: #2a2727;
+}
+
+.dataframe tbody tr:hover {
+  background: #333;
+}
+
+.dataframe th {
+  font-weight: bold;
+}
+
+.dataframe td {
+  white-space: nowrap;
+}
 @media (max-width: 730px) {
   .container {
     flex-direction: column;
@@ -161,8 +210,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-
 @media (min-width: 1024px) {
   .card iframe {
     min-height: 500px;
